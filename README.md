@@ -6,36 +6,43 @@ A Maratona Behind the Code é uma iniciativa digital que visa capacitar e aproxi
 
 ## Links dos desafios:
 [Repositório Principal](https://github.com/maratonadev-br/)
+<br>
 
-</br>
-[Desafio 1 - Cocamar](https://github.com/maratonadev-br/desafio-1-2020) 
-</br>
-Reconhecimento de imagens com inteligência artificial, desenvolvimento de aplicaões Web com Cloud Foundry e ferramentas de DevOps.
-</br>
+[Desafio 1 - Cocamar](https://github.com/maratonadev-br/desafio-1-2020)
+<br>
+* Reconhecimento de imagens com IA, desenvolvimento de aplicações Web com Cloud Foundry e DevOps.
+
+
 [Desafio 2 - Uninassau](https://github.com/maratonadev-br/desafio-2-2020)
-</br>
-Ciência de dados, feature engineering, desenvolvimento e deployment de modelos de Machine Learning com jupyter Notebooks e Watson Machine Learning.
-</br>
+<br>
+* Ciência de dados, feature engineering, deployment de modelos de Machine Learning com Watson Machine Learning.
+
+
 [Desafio 3 - Fiap](https://github.com/maratonadev-br/desafio-3-2020)
-</br>
-Ferramentas de anotação e exploração de entidades textuais com Inteligênia Artificial.
-</br>
+<br>
+* Ferramentas de anotação e exploração de entidades textuais com Inteligênia Artificial.
+
+
 [Desafio 4 - Algar](https://github.com/maratonadev-br/desafio-4-2020)
-</br>
-Ciência de dados, feature engineering, desenvolvimento e deployment de modelos de Machine Learning com SPSS Modeler e Watson Machine Learning.
-</br>
+<br>
+* Ciência de dados, feature engineering, deployment de modelos de Machine Learning com SPSS Modeler.
+
+
 [Desafio 5 - TecBan](https://github.com/maratonadev-br/desafio-5-2020)
-</br>
-Desenvolvimento de assistentes virtuais inteligentes integrados com APIs e microsserviços.
-</br>
+<br>
+* Desenvolvimento de assistentes virtuais inteligentes integrados com APIs e microsserviços.
+
+
 [Desafio 6 - LIT](https://github.com/maratonadev-br/desafio-6-2020)
-</br>
-Ciência de dados, feature engineering, desenvolvimento e deployment de modelos de Machine Learning com jupyter Notebooks e Watson Machine Learning.
-</br>
+<br>
+* Ciência de dados, feature engineering, deployment de modelos de Machine Learning com Watson Machine Learning.
+
+
 [Desafio 7 - TNT](https://github.com/maratonadev-br/desafio-7-2020)
-</br>
-Coleta de dados via protocolo MQTT, feature enineering, desenvolvimento e deployment de modelos de Machine Learning com Jupyter Notebooks.
-</br>
+<br>
+* Coleta de dados via protocolo MQTT, feature enineering, desenvolvimento de modelos com Jupyter Notebooks.
+
+
 [Desafio 8 - FCA](https://github.com/maratonadev-br/desafio-8-2020)
-</br>
-inteligência artificial em modelos anotadores de texto com watson Knowledge Studio e desenvolvimento de APIs integradas.
+<br>
+* Inteligência artificial em modelos anotadores de texto com Watson Knowledge Studio e APIs integradas.
