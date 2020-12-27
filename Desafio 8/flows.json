@@ -1,0 +1,282 @@
+[
+    {
+        "id": "b0f6f421.15c528",
+        "type": "tab",
+        "label": "FCA",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "d91bd5f8.2c9538",
+        "type": "http in",
+        "z": "b0f6f421.15c528",
+        "name": "",
+        "url": "/fiat",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "bf7a53fa.ec7d4",
+                "16891b97.d96f64"
+            ]
+        ]
+    },
+    {
+        "id": "2cb5511d.1a297e",
+        "type": "http response",
+        "z": "b0f6f421.15c528",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "bf7a53fa.ec7d4",
+        "type": "debug",
+        "z": "b0f6f421.15c528",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "16891b97.d96f64",
+        "type": "switch",
+        "z": "b0f6f421.15c528",
+        "name": "Text OR Audio",
+        "property": "req.files.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 140,
+        "y": 220,
+        "wires": [
+            [
+                "4a60fe2a.0b091"
+            ],
+            [
+                "6365e8d0.1317b8"
+            ]
+        ]
+    },
+    {
+        "id": "6365e8d0.1317b8",
+        "type": "function",
+        "z": "b0f6f421.15c528",
+        "name": "Txt to NLU",
+        "func": "msg.payload = (\n    msg.req.body.text ? msg.req.body.text : msg.payload\n    );\nmsg.nlu_options = {\n    \"entity_model\":\"b4cac6fc-d651-4d53-82fa-41c3b8c8e4e0\",\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 130,
+        "y": 420,
+        "wires": [
+            [
+                "5dc314f6.ce145c"
+            ]
+        ]
+    },
+    {
+        "id": "792b8d55.40e124",
+        "type": "function",
+        "z": "b0f6f421.15c528",
+        "name": "Recommender",
+        "func": "var entidades = [];\nvar CarroRecomendacao = \"TORO\";\n\nif (msg.req.body.car == \"Toro\") {\n    CarroRecomendacao = \"LINEA\";\n}\nif (msg.features.sentiment.document.label == \"positive\") {\n    CarroRecomendacao = \"\";\n}\n\n//Pega a resposta do NLU e coloca no Padrão de Retorno\nfor(i=0;i<msg.features.entities.length;i++){\n    \n    var objEntidades = {\n        entity: msg.features.entities[i].type,\n        sentiment: msg.features.entities[i].sentiment.score,\n        mention: msg.features.entities[i].text\n    };\n    \n    entidades[i]=objEntidades;\n    \n}\n\nvar resposta = {\n  recommendation: CarroRecomendacao,\n  entities : entidades\n};\n\nmsg.payload = resposta;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 760,
+        "y": 420,
+        "wires": [
+            [
+                "33074c09.7916c4",
+                "2cb5511d.1a297e"
+            ]
+        ]
+    },
+    {
+        "id": "4a60fe2a.0b091",
+        "type": "function",
+        "z": "b0f6f421.15c528",
+        "name": "Get the Buffer",
+        "func": "msg.payload = msg.req.files[0].buffer;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "44c06d88.876c74"
+            ]
+        ]
+    },
+    {
+        "id": "47544b8b.b79df4",
+        "type": "debug",
+        "z": "b0f6f421.15c528",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "44c06d88.876c74",
+        "type": "watson-speech-to-text",
+        "z": "b0f6f421.15c528",
+        "name": "",
+        "alternatives": "2",
+        "speakerlabels": false,
+        "smartformatting": false,
+        "lang": "pt-BR",
+        "langhidden": "pt-BR",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "custom-weight": "0.5",
+        "band": "NarrowbandModel",
+        "bandhidden": "NarrowbandModel",
+        "keywords": "",
+        "keywords-threshold": "0.7",
+        "word-confidence": false,
+        "password": "",
+        "apikey": "****",
+        "payload-response": true,
+        "streaming-mode": false,
+        "streaming-mute": true,
+        "auto-connect": false,
+        "discard-listening": false,
+        "disable-precheck": false,
+        "service-endpoint": "****",
+        "x": 460,
+        "y": 260,
+        "wires": [
+            [
+                "6365e8d0.1317b8"
+            ]
+        ]
+    },
+    {
+        "id": "5dc314f6.ce145c",
+        "type": "natural-language-understanding",
+        "z": "b0f6f421.15c528",
+        "name": "",
+        "categories": false,
+        "limitcategories": "3",
+        "concepts": false,
+        "maxconcepts": "8",
+        "doc-emotion": false,
+        "doc-emotion-target": "",
+        "doc-sentiment": true,
+        "doc-sentiment-target": "",
+        "entity": true,
+        "entity-emotion": true,
+        "entity-sentiment": true,
+        "maxentities": "10",
+        "keyword": false,
+        "keyword-emotion": false,
+        "keyword-sentiment": true,
+        "maxkeywords": "50",
+        "metadata": false,
+        "relation": false,
+        "semantic": false,
+        "semantic-entities": true,
+        "semantic-keywords": true,
+        "maxsemantics": "50",
+        "limittextcharacters": "0",
+        "syntax": false,
+        "syntax-sentences": true,
+        "syntax-tokens-lemma": true,
+        "syntax-tokens-pos": false,
+        "service-endpoint": "****",
+        "x": 440,
+        "y": 420,
+        "wires": [
+            [
+                "792b8d55.40e124",
+                "47544b8b.b79df4"
+            ]
+        ]
+    },
+    {
+        "id": "33074c09.7916c4",
+        "type": "debug",
+        "z": "b0f6f421.15c528",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f7fbbc6f.d30e3",
+        "type": "inject",
+        "z": "b0f6f421.15c528",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "req.body.text",
+                "v": "A toro é bem econômica, com uma média mista de 14km/L, conforto, motor potente, forte e silencioso. É um carro confiável, com custo de manutenção baixo para a categoria. Sem dúvidas o melhor veículo a diesel no quesito custo/benefício no Brasil na atualidade.",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 20,
+        "wires": [
+            [
+                "16891b97.d96f64"
+            ]
+        ]
+    }
+]
