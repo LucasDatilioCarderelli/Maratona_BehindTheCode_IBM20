@@ -46,3 +46,8 @@ A Maratona Behind the Code é uma iniciativa digital que visa capacitar e aproxi
 [Desafio 8 - FCA](https://github.com/maratonadev-br/desafio-8-2020)
 <br>
 * Inteligência artificial em modelos anotadores de texto com Watson Knowledge Studio e APIs integradas.
+
+## Ranking
+<p align="center">
+<img src="https://github.com/LucasDatilioCarderelli/Maratona_BehindTheCode_IBM20/blob/main/RankMBTC.PNG" alt="Ranking 185º">
+</p>
