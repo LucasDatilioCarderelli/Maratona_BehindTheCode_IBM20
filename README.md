@@ -1,6 +1,6 @@
-# [Maratona Behind the Code IBM 2020](https://maratona.dev/pt) 
-
 ![](https://maratona.dev/static/img/ready-set-code.jpg)
+
+# [Maratona Behind the Code IBM 2020](https://maratona.dev/pt) 
 
 A Maratona Behind the Code é uma iniciativa digital que visa capacitar e aproximar desenvolvedores e entusiastas ao mercado de tecnologia. Através de videoaulas e tutoriais, tenha acesso free e aprenda a usar as tecnologias mais disruptivas do mercado (como Inteligência Artificial, Cloud, Containers e IoT) na nuvem da IBM.
 
